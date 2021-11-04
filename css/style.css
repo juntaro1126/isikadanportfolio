@@ -1,0 +1,930 @@
+@charset "UTF-8";
+* {
+  box-sizing:border-box;
+}
+/*------------------------------------------------------------------------------
+共通部分
+------------------------------------------------------------------------------*/
+html {
+  width: 100%;
+}
+body {
+  overflow-x: hidden;
+  font-family: “Times New Roman”, “游明朝”, “Yu Minho”, “游明朝体”, “YuMinho”, “ヒラギノ明朝 Pro W3”, “Hiragino Minho Pro”, “HiraMinProN-W3”, “HGS明朝E”, “ＭＳ Ｐ明朝”, “MS PMincho”, serif;;
+}
+
+
+
+/*------------------------------------------------------------------------------
+固定ヘッダー
+
+ヘッダー参考サイト       
+https://www.kibunesou.com/
+https://qiita.com/7note/items/1f63d873fcd610fba956
+
+cssで透明度を指定する方法
+https://web-camp.io/magazine/archives/27075
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 99;
+------------------------------------------------------------------------------*/
+
+header {
+  display: none;                      /* ページ読み込み時は非表示にする */
+ }
+.header_left_center_right {           
+  background:rgba(253, 253, 253, 0.6);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 1%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 80;
+}
+.header_left_center {
+  display: flex;
+  align-items: center;
+}
+.header_left:hover {
+  opacity: 0.6;
+}
+.header_left img {
+  margin-right: 4vw;
+  width: 200px;
+}
+.header_center {
+  text-decoration: none;
+  color: #FFFFFF;
+  margin-right: 10px;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+.header_center:hover {
+  opacity: 0.8;
+}
+.headerright {
+  background: #978F10 0% 0% no-repeat padding-box;
+  width: 170px;
+  text-align: center;
+  line-height: 54px;
+
+  font-size: 16px;
+  font-weight: 800;
+  opacity: 1;
+}
+.headerright:hover {
+  opacity: 0.4;
+}
+/*モーダルの開くボタン */
+.header_right {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.header_right img {
+  margin-right: 10px;
+  vertical-align: -3px; /*画像の細かい位置調整*/
+}
+/*モーダルの開くボタン終了*/
+
+
+/*------------------------------------------------------------------------------
+ハンバーガーメニュー
+------------------------------------------------------------------------------*/
+
+#hamburger {
+  display: none;
+}
+.btn-gNav {
+  margin-top: 15px;
+}
+
+
+/*------------------------------------------------------------------------------
+トップアニメーション
+
+トップアニメーション参考サイト
+ https://hoshinoya.com/  
+
+ 一番参考になった
+ https://www.esz.co.jp/blog/185.html
+
+ -webkit-とは？
+ https://code-schools.com/css-webkit/
+
+------------------------------------------------------------------------------*/
+.main_imgBox {
+height: 710px;
+overflow: hidden;
+position: relative; 
+}
+.main_imgBox p {
+  color: #FFFFFF;
+  font-size: 34px;
+  opacity: 1;
+  -webkit-writing-mode: vertical-rl;              /*Google Chrome、Safari向け*/
+  -ms-writing-mode: tb-rl;                        /*IE(Microsoft)向け*/
+  writing-mode: vertical-rl;
+  display: inline-block;
+  max-width: 119px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 40%; /** 場合によっては微調整 **/
+  right: 30%;  /** 場合によっては微調整 **/
+}
+.main_img {
+  z-index:10;
+  opacity: 0;                                         /*最初は何も表示しない*/
+  width: 100%;                                        /*表示する画像の幅*/
+  height: 100%;                                       /*表示する画像の高さ*/
+  background-position: center center;
+  background-repeat: no-repeat;                       /*背景を繰り返さない*/
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-animation: anime 48s 0s infinite; /*Google Chrome、Safari向け*/
+  animation: anime 48s 0s infinite;         /*一周48秒かけて再生をループする*/
+}
+.main_img:nth-of-type(1) {
+  background-image: url(../img/mainbg01.jpg);
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s; }                    /*0秒後にアニメーションを開始*/
+
+.main_img:nth-of-type(2) {
+  background-image: url(../img/mainbg02.jpg);
+  -webkit-animation-delay: 8s;
+  animation-delay: 8s; }                     /*8秒後にアニメーションを開始*/
+
+.main_img:nth-of-type(3) {
+  background-image: url(../img/mainbg03.jpg);
+  -webkit-animation-delay: 16s;
+  animation-delay: 16s; }                     /*16秒後にアニメーションを開始*/
+
+.main_img:nth-of-type(4) {
+  background-image: url(../img/mainbg01.jpg);
+  -webkit-animation-delay: 24s;
+  animation-delay: 24s; }                     /*24秒後にアニメーションを開始*/
+
+.main_img:nth-of-type(5) {
+  background-image: url(../img/mainbg02.jpg);
+  -webkit-animation-delay: 32s;
+  animation-delay: 32s; }                     /*32秒後にアニメーションを開始*/
+
+.main_img:nth-of-type(6) {
+  background-image: url(../img/mainbg03.jpg);
+  -webkit-animation-delay: 40s;
+  animation-delay: 40s; }                     /*40秒後にアニメーションを開始*/
+
+/*@keyframesは
+アニメーション開始から終了するまでどのようなアニメーションをするのか指定できる*/
+  @keyframes anime {
+      0% {                                            /*アニメーションの開始*/
+          opacity: 0;                                 /*画像が見えない*/
+      }
+      8% {
+          opacity: 1;                                 /*画像が見える*/
+      }
+      17% {
+          opacity: 1;                                 /*画像が見える*/
+      }
+      25% {
+          opacity: 0;                                 /*画像が見ない*/
+          transform: scale(1.2) ;                     /*1.2倍にする*/
+           z-index:9;
+      }
+      100% { opacity: 0 }                             /*アニメーションの終了*/
+  }
+  
+
+
+
+
+
+/*------------------------------------------------------------------------------
+予約モーダルフォーム
+
+送信フォーム参考サイト     https://shogo-log.com/submit-disabled/
+
+モーダル参考サイト         https://webdesignday.jp/inspiration/technique/css/4680/
+                          https://dezanari.com/jquery-modal/
+
+一番参考になった
+背景をクリックしたときモーダルが閉じるjQueryコードがない
+https://qiita.com/7note/items/a93761dd16fe4cb9911a
+
+
+
+日付選択flatpickr参考サイト
+https://www.google.com/search?q=flatpickr+%E4%BD%BF%E3%81%84%E6%96%B9&rlz=1C1QABZ_jaJP910JP910&oq=flatpickr&aqs=chrome.1.69i57j0i512l8j0i10i512.3499j0j15&sourceid=chrome&ie=UTF-8
+
+flatpickr公式(英語)
+https://flatpickr.js.org/
+
+flatpickrドキュメント翻訳
+https://tr.you84815.space/flatpickr/index.html
+------------------------------------------------------------------------------*/
+
+/* モーダルウィンドウ */
+.modal {
+  background: rgba(0,0,0,0.5);       /* 半透明の背景を設置 */
+  position: fixed;                     /* 表示位置に固定 */
+  width: 100%;                         /* 横幅を幅いっぱい */
+  height: 100%;                        /* 高さを縦幅いっぱい */
+  top: 0;                              /* 上から0pxの位置 */
+  left: 0;                             /* 左から0pxの位置 */
+  display: none;                       /* 最初は非表示にする */
+  box-sizing: border-box;              /* 余白や幅の計算を簡単にする */
+  margin: 0 auto;                      /* 左右中央に配置*/
+  padding: 50px;                       /* 上下左右に適度な余白 */
+  z-index: 99;
+}
+
+/* モーダルの中の要素 */
+.modal .box {
+  background: #fff;                  /* 背景色を白に指定 */
+  padding: 20px;                       /* 適度な余白を指定 */
+  max-height: calc(100vh - 100px);     /* モーダルウィンドウが画面の縦（+余白）より大きくなった際の対処のため指定 */
+  overflow-y: scroll;                  /* max-heightを超えたらスクロールになるよう指定 */
+  box-sizing: border-box;              /* 余白や幅の計算を簡単にする */
+  
+  margin: 0 auto;                      /*中央に寄せる*/
+  max-width: 550px;                   /*幅を指定*/
+                    
+}
+
+/*フォームの全体*/
+.form-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+/*モーダル 宿泊予約*/
+.modal_form {
+  width: 80px;
+  margin: 29px auto 0;
+  font-size: 20px;
+}
+/*名前 メールアドレス ご宿泊プラン 日時選択 文字サイズ*/
+.modal_form2 {
+  font-size: 16px;
+}
+
+.modal_form3 {
+  border: 1px solid #E7E7E7;
+  width: 429px;
+  margin: 20px auto;
+}
+.modal_form4 {
+  font-size: 16px;
+}
+.flatpickr {
+  border: 1px solid #E7E7E7;
+  width: 429px;
+  margin: 20px auto;
+}
+.modal_form5 {
+  border: 1px solid #707070;
+  padding: 13px 67px;
+  width: 200px;
+  margin: 50px auto 0;
+}
+.modal_form5:hover {
+  cursor: pointer	;
+  opacity: 0.6;
+}
+/*閉じるボタン*/
+.close {
+ text-align: right;  
+}
+.close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/*------------------------------------------------------------------------------
+縦文字
+------------------------------------------------------------------------------*/
+article {
+  background-image:url(../img/bg.jpg);
+  height: 681px;
+}
+.vertical_vertical {
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  max-width: 859px;
+  margin: 0 auto;
+  padding: 0 4% ;
+}
+.vertical {
+  -webkit-writing-mode: vertical-rl;              /*Google Chrome、Safari向け*/
+  -ms-writing-mode: tb-rl;                        /*IE(Microsoft)向け*/
+  writing-mode: vertical-rl;
+  text-align: left;
+	display: inline-block;
+  margin-left: 5vw;
+  margin-top: 64px;
+}
+.vertical2 {
+ font-size: 16px;
+ margin-top: 85px;
+}
+.vertical2 span {
+  text-combine-upright: all;
+}
+.vertical3 {
+  margin-top: 380px;
+  font-size: 22px;
+}
+.vertical4 {
+  font-size: 28px;
+}
+
+
+/*------------------------------------------------------------------------------
+お部屋(oheya)についての紹介
+------------------------------------------------------------------------------*/
+.oheya {
+  margin-top: 106px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+.oheya2 {
+  max-width: 80%;
+  max-height: 545px;
+}
+
+.oheya4 {
+  font-size: 36px;
+  margin-bottom: 75px;
+}
+.oheya5 {
+  font-size: 16px;
+  margin-bottom: 75px;
+}
+.oheya6 {
+  text-decoration: none;
+  font-size: 16px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  padding: 20px 44px;
+  color: #000000;
+}
+.oheya6:hover {
+  opacity: 0.4;
+}
+
+
+/*------------------------------------------------------------------------------
+料理(ryouri)についての紹介
+------------------------------------------------------------------------------*/
+.ryouri {
+  margin-top: 106px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.ryouri2 {
+  max-width: 80%;
+  max-height: 545px;
+}
+.ryouri3 {
+  margin-left: 200px;
+}
+.ryouri4 {
+  font-size: 36px;
+  margin-bottom: 75px;
+}
+.ryouri5 {
+  font-size: 16px;
+  margin-bottom: 75px;
+}
+.ryouri6 {
+  text-decoration: none;
+  font-size: 16px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  padding: 20px 44px;
+  color: #000000;
+}
+.ryouri6:hover {
+  opacity: 0.4;
+}
+
+
+/*------------------------------------------------------------------------------
+温泉(onsen)についての紹介
+------------------------------------------------------------------------------*/
+.onsen {
+  margin-top: 106px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+.onsen2 {
+  max-width: 80%;
+  max-height: 545px;
+}
+
+.onsen4 {
+  font-size: 36px;
+  margin-bottom: 75px;
+}
+.onsen5 {
+  font-size: 16px;
+  margin-bottom: 75px;
+}
+.onsen6 {
+  text-decoration: none;
+  font-size: 16px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  padding: 20px 44px;
+  color: #000000;
+}
+.onsen6:hover {
+  opacity: 0.4;
+}
+
+
+/*------------------------------------------------------------------------------
+おすすめご宿泊プラン
+------------------------------------------------------------------------------*/
+.stay_plan {
+  background-image: url(../img/bg2.jpg);
+  background-size: cover;
+  /*背景画像の粗さが気になるならこっちに変更
+  background-repeat: repeat;*/
+  margin-top: 78px;
+  padding-bottom: 144px;
+  /*height: 775px;*/
+  height: auto;
+  width: 100%;
+}
+.stay_plan2 {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2%;
+  text-align: center;
+}
+.stay_plan3 {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 40px;
+}
+.stay_plan4 {
+font-size: 36px;
+text-align: center;
+margin-bottom: 66px;
+}
+.stay_plan5 {
+  display: flex;
+  justify-content: space-around;
+}
+.stay_plan6 {
+  text-align: left;
+}
+.stay_plan7 {
+  width: 331px;
+  margin-bottom: 32px;
+}
+.stay_plan8 {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+.stay_plan9 {
+  font-size: 16px;
+}
+
+
+/*------------------------------------------------------------------------------
+お知らせ 
+
+お知らせのタブ 参考サイト https://www.flatflag.nir87.com/tab-1960
+------------------------------------------------------------------------------*/
+.notification {
+ width: 100%;
+ height: auto;
+ text-align: center;
+ margin-bottom: 60px;
+}
+.notification2 {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+.notification4 {
+  margin-top: 40px;
+}
+.notification5 {
+  font-size: 36px;
+}
+
+/*------------------------------------------------------------------------------
+お知らせタブの内容
+------------------------------------------------------------------------------*/
+/*タブ実装 タブボタン*/
+.tab_box .btn_area {
+	margin:0 10px 20px;
+	display: -webkit-box;
+	display: flex;
+  justify-content: center;
+}
+/*タブボタン*/
+.tab_box .tab_btn {
+	width: 188px;
+	padding: 8px 0;
+	color: #333;
+
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.2s ease 0s;
+}
+/*タブボタン隙間*/
+.tab_box .tab_btn + .tab_btn {
+	margin-left: 8px;
+}
+/*タブボタン カーソルを乗せたとき*/
+.tab_box .tab_btn:hover {
+	background-color: #fff;
+  opacity: 0.4;
+}
+/*タブボタン クリックしたとき*/
+.tab_box .tab_btn.active {
+  
+  text-decoration: underline;
+ 
+}
+/*大きな箱*/
+.tab_box .panel_area {
+  border: solid 1px #e3ebf3;
+  /*padding: 20px;*/
+}
+
+.tab_box .tab_panel {
+  display:none;
+}
+
+.tab_box .tab_panel.active {
+  display:block; 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.notification7 {
+  width: 103px;
+  height: 100px;
+}
+.notification8 {
+  display: flex;
+  margin: 4px;
+  border: solid 1px #e3ebf3;
+  width: 550px;
+  padding: 15px 10px;
+  background-color: #F6F6F6;
+}
+.notification9 {
+  text-align: left;
+  margin-left: 30px;
+}
+
+
+/*------------------------------------------------------------------------------
+アクセス
+------------------------------------------------------------------------------*/
+.access {
+  background-image:url(../img/bg.jpg);
+  background-size: cover;
+  width: 100%;
+  /*height: 1381px;*/
+  height: auto;
+  padding-bottom: 110px;
+  text-align: center;
+}
+.access2 {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+.access4 {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 40px;
+}
+.access5 {
+font-size: 36px;
+margin-bottom: 66px;
+}
+.access6 {
+  text-align: left;
+  display: flex;
+  margin-bottom: 69px;
+  font-size: 16px;
+}
+.access7 {
+  max-width: 656px;
+  max-height: 370px;
+}
+.access8 {
+  margin-top: 20px;
+  margin-left: 83px;
+}
+.access8 p {
+  margin-bottom: 20px;
+}
+.access9 {
+  padding: 0 1%;
+}
+.access10 {
+  max-width: 792px;
+  margin: 0 auto;
+}
+/*------------------------------------------------------------------------------
+メインフッター
+------------------------------------------------------------------------------*/
+.footer {
+  background-image: url(../img/bg3.jpg);
+  height: 522px;
+  width: 100%;
+}
+.footer2 {
+  padding-top: 64px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  font-size: 18px;
+  max-width: 140px;
+  margin: 0 auto 96px;
+}
+.footer3 {
+  text-decoration: none;
+  color: #000000;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+.footer3:hover {
+  opacity: 0.6;
+}
+.footer4 {
+  text-align: center;
+  font-size: 16px;
+}
+.footer5 {
+  margin-bottom: 72px;
+}
+.footer5:hover {
+  opacity: 0.6;
+}
+.footer6 {
+  margin-bottom: 23px;
+}
+.mar_20 {
+  margin-right: 20px;
+}
+
+
+/*------------------------------------------------------------------------------
+フッター
+------------------------------------------------------------------------------*/
+#footer {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 12px;
+  background-color: #000000;
+  width: 100%;
+  line-height: 60px;
+}
+/*------------------------------------------------------------------------------
+SP (min-width: 1220px)
+------------------------------------------------------------------------------*/
+@media screen and (min-width: 1220px) {
+
+}
+/*------------------------------------------------------------------------------
+SP (max-width: 1450px) 
+------------------------------------------------------------------------------*/
+@media screen and (max-width: 1450px) {
+  
+/*------------------------------------------------------------------------------
+お部屋 料理 温泉 レスポンシブ (max-width: 1450px) 
+------------------------------------------------------------------------------*/
+  .oheya{
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+  }
+  .oheya2 {
+   margin-bottom: 40px;
+  }
+  .ryouri {
+   display: flex;
+   flex-direction: column-reverse;
+   text-align: center;
+  }
+  .ryouri2 {
+    margin-bottom: 40px;
+  }
+  .ryouri3 {
+    margin-left: 0;
+  }
+  .onsen {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .onsen2 {
+    margin-bottom: 40px;
+  }
+/*------------------------------------------------------------------------------
+おすすめご宿泊プラン レスポンシブ (max-width: 1450px) 
+------------------------------------------------------------------------------*/
+  .stay_plan {
+    height: auto;
+  }
+  .stay_plan5 {
+    display: flex;
+    flex-direction: column;
+  }
+  .stay_plan6 {
+    text-align: center;
+  }
+  .stay_plan7 {
+    width: 60%;
+  }
+  .stay_plan9 {
+    margin-bottom: 30px;
+  }
+/*------------------------------------------------------------------------------
+アクセス レスポンシブ (max-width: 1450px) 
+------------------------------------------------------------------------------*/
+  .access6 {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3%;
+  }
+  .access7 {
+    margin: 0 auto;
+    max-width: 80%;
+    margin-bottom: 40px;
+  }
+  .access8 {
+    margin: 0 auto;
+  }
+  .access10 {
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+}
+
+/*------------------------------------------------------------------------------
+お知らせ レスポンシブ (max-width: 1200px)
+------------------------------------------------------------------------------*/
+@media screen and (max-width: 1200px) {
+
+.notification8 {
+  margin: 4px auto;
+}
+
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------
+SP (max-width: 1024px) タブレット用
+------------------------------------------------------------------------------*/
+@media screen and (max-width: 1024px) {
+
+.header_right {
+  display: none;
+}
+
+/*--ハンバーガーメニュー--*/
+#hamburger {
+  display: block;
+}
+#hamburger .btn-gNav{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 24px;
+  z-index: 3;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+#hamburger .btn-gNav span{
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #666;
+  border-radius: 10px;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+#hamburger .btn-gNav span:nth-child(1) {
+  top:0;
+}
+#hamburger .btn-gNav span:nth-child(2) {
+  top:10px;
+}
+#hamburger .btn-gNav span:nth-child(3) {
+  top:20px;
+}
+
+#gNav{
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: #444;
+  font-size: 16px;
+  box-sizing: border-box;
+  z-index: 2;
+  padding-top: 50px;
+  transition: .3s;
+}
+#gNav.open{
+  right: 0px;
+}
+#gNav .gNav-menu{
+  width: 100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /*justify-content: center;*/
+}
+#gNav .gNav-menu li{
+  display: block;
+  padding : 20px 30px;
+}
+#gNav .gNav-menu li a{
+  color: #ddd;
+  text-decoration: none;
+}
+
+
+@media screen and (min-width: 1024px){
+  .btn-gNav{
+    display: none;
+  }
+  #gNav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 50px;
+  }
+  #gNav .gNav-menu{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-left: 50px;
+  }
+  #gNav .gNav-menu li{
+    padding-top: 5px;
+  }
+}
+
+
+
+
+}
+/*------------------------------------------------------------------------------
+SP (max-width: px) スマートフォン用
+------------------------------------------------------------------------------*/
+@media screen and (max-width: 599px) {
+
+  .headercenter {
+    display: none;
+  }
+
+
+
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>石井花壇 | 温海温泉旅館【ポートフォリオ】</title>
+    <meta name="description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。 伝統的「和」の息づく空間で、至極のひとときをお過ごしください。">
+
+    <!--レスポンシブデザイン時に必要 (Google推奨)
+    viewportとは表示領域-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="img/logo02.jpg">
+
+    <!-- flatpickrの読み込み -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+   
+
+    <!--jQueryを読み込ませる-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--自分のJavaScriptファイル(jQuery)を読み込ませてる-->
+    <script src="js/main.js" defer></script>
+  </head>
+
+
+  
+  
+  
+
+<body>
+
+<!--固定ヘッダー-->
+
+  <header>
+  
+    
+
+  <div class="header_left_center_right">
+    <div class="header_left_center">
+     <div class="header_left">
+       <a href="#"><img src="img/top-header-logo.png" alt="ロゴ"></a>
+     </div>
+
+     <nav class="headercenter">
+      <a class="header_center" href="#">お部屋</a>
+      <a class="header_center" href="#">お料理</a>
+      <a class="header_center" href="#">温泉</a>
+     </nav>
+    </div>
+
+
+    <!--予約モーダルフォーム-->
+     <div class="headerright">
+
+       <!--モーダルの開くボタン-->
+       <a class="header_right" href="#">
+       <img src="img/calender.png" alt="カレンダー">宿泊予約</a>
+       <!--モーダルの開くボタン終了-->
+
+     </div>
+
+
+        <!--スマートフォン 始まり-->
+        <div id="hamburger">
+          <p class="btn-gNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </p>
+          <nav id="gNav" class="">
+            <ul class="gNav-menu">
+              <li><a href="#">お部屋</a></li>
+              <li><a href="#">お料理</a></li>
+              <li><a href="#">温泉</a></li>
+              <li><a class="header_rightheader_right" href="#">宿泊予約</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!--スマートフォン 終わり-->
+
+
+
+  </header>
+  <!--固定ヘッダー終わり-->
+
+
+  <!--トップアニメーション-->
+  <div class="main_imgBox">
+    <div class="main_img"><p>頑張る人の<br>頑張らない時間</p></div>
+    <div class="main_img"></div>
+    <div class="main_img"></div>
+    <div class="main_img"><p>頑張る人の<br>頑張らない時間</p></div>
+    <div class="main_img"></div>
+    <div class="main_img"></div>
+  </div>
+
+  <!--トップアニメーション終わり-->
+
+
+  
+<!--モーダルの中の要素始め-->
+<div class="modal">
+  <div class="box">
+
+    <!--モーダルの閉じるボタン-->
+    <div class="close"><img class="close" src="img/close.jpg" alt="閉じるボタン"></div>
+    <!--モーダルの閉じるボタン終了-->
+
+    <p class="modal_form">宿泊予約</p>
+    <!--フォームの中の要素始め-->
+    <div class="form-wrapper">
+
+        <!--名前-->
+        <div class="modal_form2">
+          <label for="name">お名前</label><br>
+          <input class="modal_form3" type="text" name="entry.396652230" id="name" placeholder="例：山田太郎" required>
+        </div>
+
+        <!--メールアドレス-->
+        <div class="modal_form2">
+          <label for="mail">メールアドレス</label><br>
+          <input class="modal_form3" type="mail" name="entry.1934980237" id="mail" placeholder="例：Example@example.com" required>
+        </div>
+
+        <!--ご希望プラン（空いているプランのみ表示されます）-->
+        <div class="modal_form2"> 
+          <p class="modal_form4">ご希望プラン（空いているプランのみ表示されます）</p>
+          <select class="modal_form3" name="pull-down">
+            <option value="サンプル1">①【期間限定】海辺の四季旬彩、贅沢美味懐石プラン</option>
+            <option value="サンプル2">②平日に優雅に楽しむ、特別宿泊プラン</option>
+            <option value="サンプル3">③絶景貸切露天と個室会席を満喫できるファミリープラン</option>
+          </select>
+        </div>
+
+        <!--日時選択-->
+        <div class="modal_form2">
+          <p class="modal_form4">日時選択</p>
+          <form action="#" method="post">
+            <input class="flatpickr" type="text" placeholder="日時を選択してください" readonly="readonly">
+            
+          </form>
+        </div>
+
+        
+
+       
+    </div>
+       <!--送信ボタン-->
+       <p class="modal_form5">送信する</p>
+       <!--送信ボタン-->
+
+
+    <!--フォームの中の要素終わり-->
+
+  </div>
+</div>
+<!--モーダルの中の要素終了-->
+
+ </div>
+<!--予約モーダルフォーム終わり-->
+
+
+
+
+
+
+
+
+  <!--縦文字-->
+
+
+  <main class=""><!--main-->
+
+      <article class="">
+
+        <div class="vertical_vertical">
+          <div class="vertical">
+            <p class="vertical4">温 海 温 泉 の</p><br>
+            <p class="vertical2 vertical4">美 し さ に 癒 や さ れ て</p>
+          </div>
+  
+          <div class="vertical">
+           <p class="vertical2">東 北 の 奥 座 敷 で あ る 温 海 温 泉 郷<br>
+           開 湯 は 約 <span>1</span> <span>3</span> <span>0</span> <span>0</span> 年 前 と さ れ 、 役 小 角 が<br>
+           発 見 し た と 伝 え ら れ ま す</p>
+          </div>
+  
+          <div class="vertical">
+            <p class="vertical2">石 井 花 壇 は 江 戸 よ り 続 く 由 緒 あ る 旅 館 で<br>
+            ク ラ シ ッ ク な 作 り の 中 に 大 正 ロ マ ン あ ふ れ る<br>
+            内 装 を 残 し て お り ま す</p>
+          </div>
+  
+          <div class="vertical">
+            <p class="vertical2">圧 倒 的 癒 や し の 空 間 で<br>
+            頑 張 る 現 代 人 に<br>
+            頑 張 ら な い 圧 倒 的 な 非 日 常 を ご 提 供 し ま す</p></p>
+          </div>
+  
+          <div class="vertical">
+            <p class="vertical3">石 井 花 壇</p>
+          </div>
+        </div>
+        
+      </article>
+      
+
+     <!--お部屋 料理 温泉-->
+
+
+     <div class="oheya_ryouri_onsen">
+
+
+      <div class="oheya">
+        <img  class="oheya2" src="img/oheya-top.jpg" alt="お部屋">
+        <div class="oheya3">
+          <p class="oheya4">喧騒から離れた空間<br>
+             心落ち着く至極のひととき</p>
+          <p class="oheya5">まるで時が止まったかのような、圧倒的な静寂のなかで、<br>
+             ひたすらにゆったりと…。<br>
+              最高級の「何もしない時間」をお過ごしください。</p>
+          <a class="oheya6" href="#">お部屋について</a>
+        </div>
+      </div>
+      
+      <div class="ryouri">
+        <div class="ryouri3">
+          <p class="ryouri4">出迎えるのは <br>
+            極上の温海料理</p>
+          <p class="ryouri5">最も旬の食材を愉しむ、最高の贅沢を<br>
+             最高級A5ランクの米沢牛と共に頂く。<br>
+              あなたの人生史に残る「極上の感動」を <br>
+            お約束します。</p>
+          <a class="ryouri6" href="#">お部屋について</a>
+        </div>
+        <img  class="ryouri2" src="img/menu-top.jpg" alt="お料理">
+      </div>
+
+      <div class="onsen">
+        <img  class="onsen2" src="img/onsen-top.jpg" alt="温泉">
+        <div class="onsen3">
+          <p class="onsen4">疲れ切った身体にやすらぎを <br>
+            温海の源泉に癒やされて</p>
+          <p class="onsen5">古くは弘法大師の病をも治療したと言われる熱海の泉質。<br>
+             現代人の疲弊しきった身体を修復する最高級の湯治場として <br>
+            ご活用ください。</p>
+          <a class="onsen6" href="#">温泉について</a>
+        </div>
+      </div>
+
+
+    </div>
+
+
+      <!--おすすめご宿泊プラン-->
+
+
+      <div class="stay_plan">
+
+       <div class="stay_plan2">
+        <img class="stay_plan3" src="img/logo02.jpg" alt="ロゴ">
+        <p class="stay_plan4">おすすめご宿泊プラン</p>
+        
+         <div class="stay_plan5">
+
+          <div class="stay_plan6">
+           <img class="stay_plan7" src="img/recommended01.jpg" alt="料理1">
+           <p class="stay_plan8">朝食付きプラン、日本近海で取れた<br>
+             のどぐろを朝食として…</p>
+           <p class="stay_plan9">最高級と称されるのどぐろ、正式には「アカ<br>
+             ムツ」と呼ばれる魚、味は独特の上品な味わ<br>
+              いで、焼いても煮ても美味</p>
+          </div>
+
+          <div class="stay_plan6">
+            <img class="stay_plan7" src="img/recommended02.jpg" alt="料理2">
+            <p class="stay_plan8">【期間限定】熱海蟹をたっぷりと<br>
+               愉しむプラン。</p>
+            <p class="stay_plan9">温海で水揚げされた蟹は「温海蟹」<br>
+               として知られ、嗜好品として愛されて<br>
+               きました。この宿泊プランでは存分に</p>
+           </div>
+
+           <div class="stay_plan6">
+            <img class="stay_plan7" src="img/recommended03.jpg" alt="料理3">
+            <p class="stay_plan8">【平日限定】贅沢美味懐石プラン。<br>
+               海辺の四季旬彩プラン。</p>
+            <p class="stay_plan9">熱海近海で取れた魚を鮮度そのままに舟盛りに<br>
+               してご提供。生きた味をお楽しみください。</p>
+           </div>
+
+         </div>
+       </div>
+
+      </div>
+
+
+      <!--お知らせ-->
+
+
+      <div class="notification">
+       <div class="notification2">
+
+        <div class="notification3">
+          <img class="notification4" src="img/logo02.jpg" alt="ロゴ">
+          <p class="notification5">お知らせ</p>
+         </div>
+        
+        <div class="notification6">
+
+
+          <div class="tab_box">
+            <!--タブボタン-->
+            <div class="btn_area">
+              <p class="tab_btn active">営業情報</p>
+              <p class="tab_btn">その他</p>
+            </div>
+            <!--タブボタン終わり-->
+
+          <!--  <div class="panel_area">-->
+
+              <div class="tab_panel active">
+
+                <div class="notification8">
+                  <img class="notification7" src="img/news01.jpg" alt="お知らせ画像">
+                  <div class="notification9">
+                    <p>2020.12.24<br>
+                      年末最後の営業日は27日になります。</p>
+                  </div>
+                </div>
+
+                <div class="notification8">
+                  <img class="notification7" src="img/news02.jpg" alt="お知らせ画像">
+                  <div class="notification9">
+                    <p>2020.12.24<br>
+                      12.21は臨時休業とさせていただきますので、よろしく<br>
+                       お願いします。</p>
+                  </div>
+                </div>
+               
+                <div class="notification8">
+                  <img class="notification7" src="img/news01.jpg" alt="お知らせ画像">
+                  <div class="notification9">
+                    <p>2020.12.24<br>
+                      こんばんは！</p>
+                  </div>
+                </div>
+
+                <div class="notification8">
+                  <img class="notification7" src="img/news01.jpg" alt="お知らせ画像">
+                  <div class="notification9">
+                    <p>2020.12.24<br>
+                      こんばんは！</p>
+                  </div>
+                </div>
+
+                <div class="notification8">
+                  <img class="notification7" src="img/news01.jpg" alt="お知らせ画像">
+                  <div class="notification9">
+                    <p>2020.12.24<br>
+                      こんばんは！</p>
+                  </div>
+                </div>
+
+                <div class="notification8">
+                  <img class="notification7" src="img/news01.jpg" alt="お知らせ画像">
+                  <div class="notification9">
+                    <p>2020.12.24<br>
+                      こんばんは！</p>
+                  </div>
+                </div>
+
+              </div>
+              
+              
+
+              <div class="tab_panel">
+
+               <div class="notification8">
+                <img class="notification7" src="img/news02.jpg" alt="お知らせ画像2">
+                <div class="notification9">
+                  <p>2020.12.24<br>
+                    おはようございます！</p>
+                </div>
+               </div>
+                
+               <div class="notification8">
+                <img class="notification7" src="img/news01.jpg" alt="お知らせ画像2">
+                <div class="notification9">
+                  <p>2020.12.24<br>
+                    年末最後の営業日は27日になります。</p>
+                </div>
+               </div>
+
+               <div class="notification8">
+                <img class="notification7" src="img/news02.jpg" alt="お知らせ画像2">
+                <div class="notification9">
+                  <p>2020.12.24<br>
+                    12.21は臨時休業とさせていただきますので、よろしく<br>
+                     お願いします。</p>
+                </div>
+               </div>
+
+               <div class="notification8">
+                <img class="notification7" src="img/news02.jpg" alt="お知らせ画像2">
+                <div class="notification9">
+                  <p>2020.12.24<br>
+                    12.21は臨時休業とさせていただきますので、よろしく<br>
+                     お願いします。</p>
+                </div>
+               </div>
+
+              </div>
+
+            </div>
+          </div>
+          
+          
+
+        </div>
+
+       </div>
+      </div>
+
+
+      <!--アクセス-->
+
+
+      <div class="access">
+        <div class="access2">
+
+          <div class="access3">
+           <img class="access4" src="img/logo02.jpg" alt="ロゴ">
+           <p class="access5">アクセス</p>
+          </div>
+          
+          <div class="access6">
+           <img class="access7" src="img/acess.jpg" alt="場所画像">
+           <div class="access8">
+            <p>住所</p>
+            <p>〒000-0000<br>
+               山形県鶴岡市xxxxxxxxxx</p>
+            <p>TEL/FAX</p>
+            <p>000-0000-0000/00-0000-0000</p>
+            <p>営業時間</p>
+            <p>14:00-23:00</p>
+            <p>＊4名以上のご予約の場合は、最寄り駅の「鶴岡駅」より送迎が可能ですので、<br>
+               ご連絡ください。</p>
+           </div>
+          </div>
+
+          <div class="access9">
+            <iframe class="access10" src="https://www.google.com/maps/d/u/0/embed?mid=159uLQ6A-A_6t_X1fP-xRZ_a_1sArz1sb" width="640" height="480"></iframe>
+          </div>
+
+        </div>
+      </div>
+        
+
+
+      <!--メインフッター-->
+
+
+      <div class="footer">
+       <div class="footer2">
+        <a class="footer3" href="#">お 部 屋</a>
+        <a class="footer3" href="#">お 料 理</a>
+        <a class="footer3" href="#">温 泉</a>
+       </div>
+       <div class="footer4">
+        <a href="index.html"><img class="footer5" src="img/footer-logo.jpg" alt="最後のロゴ"></a>
+        <p class="footer6"><span class="mar_20">〒000-0000</span>山形県鶴岡市xxxxxxxxxxx</p>
+        <p><span class="mar_20">TEL.000-0000-0000</span>FAX.00-0000-0000</p>
+       </div>
+      </div>
+
+
+
+    </main><!--main-->
+
+<!--フッター-->
+<footer id="footer">
+    <p>Copyright © 石井花壇 All Rights Reserved.</p>
+</footer>
+
+
+
+<!--jQueryを読み込ませる-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--自分のJavaScriptファイル(jQuery)を読み込ませてる-->
+<script src="js/main.js"></script>
+</body>
+
+
+</html>
+
